@@ -1,0 +1,19 @@
+{% load crispy_forms_tags %}
+
+{% for item in items %}
+{{ item }}
+{% endfor %} 
+
+	<div class="content-section">
+		<form method="POST">
+			<!-- cross site request forfery token for security against attacks -->
+			{%  csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Todo Form</legend>
+				{{ form | crispy }} 
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
